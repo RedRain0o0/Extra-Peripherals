@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "cccams",
+  "version": "${version}",
+  "name": "CC: Cameras",
+  "description": "Adds 2 camera types to CC:Tweaked",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/cccams/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "io.github.redrain0o0.cccams.client.CccamsClient"
+    ],
+    "main": [
+      "io.github.redrain0o0.cccams.Cccams"
+    ]
+  },
+  "mixins": [
+    "cccams.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
