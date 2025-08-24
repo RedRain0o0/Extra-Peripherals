@@ -11,6 +11,8 @@ public class CameraBlockEntityRenderer implements BlockEntityRenderer<CameraBloc
     public CameraBlockEntityRenderer(BlockEntityRendererProvider.Context context) {}
     @Override
     public void render(CameraBlockEntity blockEntity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j) {
-        Cccams.LOGGER.info("{}, {}, {}", blockEntity.getEnabled(), blockEntity.getPitch(), blockEntity.getYaw());
+        poseStack.pushPose();
+        // uhhhhh idk what im doing /shrug
+        poseStack.popPose();
     }
 }
