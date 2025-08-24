@@ -1,9 +1,9 @@
-package io.github.redrain0o0.cccams.peripherals;
+package io.github.redrain0o0.cccams.peripheral;
 
 import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.lua.LuaFunction;
 import dan200.computercraft.api.peripheral.IPeripheral;
-import io.github.redrain0o0.cccams.blocks.entity.CameraBlockEntity;
+import io.github.redrain0o0.cccams.block.entity.CameraBlockEntity;
 import org.jspecify.annotations.Nullable;
 
 public class CameraPeripheral implements IPeripheral {

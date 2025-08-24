@@ -1,9 +1,9 @@
 package io.github.redrain0o0.cccams;
 
 import dan200.computercraft.api.peripheral.PeripheralLookup;
-import io.github.redrain0o0.cccams.blocks.CccamsBlocks;
-import io.github.redrain0o0.cccams.blocks.entity.CccamsBlockEntities;
-import io.github.redrain0o0.cccams.peripherals.CameraPeripheral;
+import io.github.redrain0o0.cccams.block.CccamsBlocks;
+import io.github.redrain0o0.cccams.block.entity.CccamsBlockEntities;
+import io.github.redrain0o0.cccams.peripheral.CameraPeripheral;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;

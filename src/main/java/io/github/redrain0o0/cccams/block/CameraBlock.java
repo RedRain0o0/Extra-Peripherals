@@ -1,7 +1,7 @@
-package io.github.redrain0o0.cccams.blocks;
+package io.github.redrain0o0.cccams.block;
 
-import io.github.redrain0o0.cccams.blocks.entity.CameraBlockEntity;
-import io.github.redrain0o0.cccams.blocks.entity.CccamsBlockEntities;
+import io.github.redrain0o0.cccams.block.entity.CameraBlockEntity;
+import io.github.redrain0o0.cccams.block.entity.CccamsBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;

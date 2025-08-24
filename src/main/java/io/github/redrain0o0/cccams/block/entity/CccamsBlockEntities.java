@@ -1,7 +1,7 @@
-package io.github.redrain0o0.cccams.blocks.entity;
+package io.github.redrain0o0.cccams.block.entity;
 
 import io.github.redrain0o0.cccams.Cccams;
-import io.github.redrain0o0.cccams.blocks.CccamsBlocks;
+import io.github.redrain0o0.cccams.block.CccamsBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

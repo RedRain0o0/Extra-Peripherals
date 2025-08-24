@@ -1,9 +1,17 @@
-package io.github.redrain0o0.cccams.blocks.entity;
+package io.github.redrain0o0.cccams.block.entity;
 
-import io.github.redrain0o0.cccams.peripherals.CameraPeripheral;
+import io.github.redrain0o0.cccams.peripheral.CameraPeripheral;
+import net.fabricmc.fabric.mixin.attachment.BlockEntityUpdateS2CPacketMixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,7 +37,7 @@ public class CameraBlockEntity extends BlockEntity {
         tick = 0;
     }
 
-    public @NotNull CameraPeripheral getPeriipheral(@Nullable Direction direction) {
+    public @NotNull CameraPeripheral getPeripheral(@Nullable Direction direction) {
         if (cameraPeripheral == null) cameraPeripheral = new CameraPeripheral(this);
         return cameraPeripheral;
     }
@@ -37,17 +45,46 @@ public class CameraBlockEntity extends BlockEntity {
     @Override
     protected void saveAdditional(CompoundTag compoundTag) {
         super.saveAdditional(compoundTag);
-        compoundTag.putBoolean("camera.enabled", enabled);
-        compoundTag.putFloat("camera.pitch", pitch);
-        compoundTag.putFloat("camera.yaw", yaw);
+        compoundTag.putBoolean("enabled", enabled);
+        compoundTag.putFloat("pitch", pitch);
+        compoundTag.putFloat("yaw", yaw);
     }
 
     @Override
     public void load(CompoundTag compoundTag) {
         super.load(compoundTag);
-        enabled = compoundTag.getBoolean("camera.enabled");
-        pitch = compoundTag.getFloat("camera.pitch");
-        yaw = compoundTag.getFloat("camera.yaw");
+        enabled = compoundTag.getBoolean("enabled");
+        pitch = compoundTag.getFloat("pitch");
+        yaw = compoundTag.getFloat("yaw");
+    }
+
+    public boolean getEnabled() {
+        return enabled;
+    }
+
+    public float getPitch() {
+        return pitch;
+    }
+
+    public float getYaw() {
+        return yaw;
+    }
+
+    @Override
+    public void setChanged() {
+        level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(),this.getBlockState(), 3);
+        super.setChanged();
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
     }
 
     public void tick(Level level, BlockPos blockPos, BlockState blockState) {
@@ -68,5 +105,7 @@ public class CameraBlockEntity extends BlockEntity {
 
         if (yaw > goalYaw) --yaw;
         else if (yaw < goalYaw) ++yaw;
+
+        ((ServerLevel) level).addParticle(new BlockParticleOption(ParticleTypes.BLOCK, blockState), true, blockPos.getX() + 1.5, blockPos.getY() + 1.0, blockPos.getZ() + 0.5, 0, 0, 0);
     }
 }

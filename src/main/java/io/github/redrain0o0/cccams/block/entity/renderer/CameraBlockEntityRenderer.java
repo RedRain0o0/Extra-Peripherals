@@ -1,0 +1,16 @@
+package io.github.redrain0o0.cccams.block.entity.renderer;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import io.github.redrain0o0.cccams.Cccams;
+import io.github.redrain0o0.cccams.block.entity.CameraBlockEntity;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+
+public class CameraBlockEntityRenderer implements BlockEntityRenderer<CameraBlockEntity> {
+    public CameraBlockEntityRenderer(BlockEntityRendererProvider.Context context) {}
+    @Override
+    public void render(CameraBlockEntity blockEntity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j) {
+        Cccams.LOGGER.info("{}, {}, {}", blockEntity.getEnabled(), blockEntity.getPitch(), blockEntity.getYaw());
+    }
+}

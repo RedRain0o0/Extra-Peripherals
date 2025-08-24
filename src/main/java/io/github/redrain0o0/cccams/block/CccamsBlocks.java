@@ -1,4 +1,4 @@
-package io.github.redrain0o0.cccams.blocks;
+package io.github.redrain0o0.cccams.block;
 
 import io.github.redrain0o0.cccams.Cccams;
 import net.minecraft.core.Registry;
