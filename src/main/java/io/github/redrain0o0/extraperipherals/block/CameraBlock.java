@@ -1,7 +1,7 @@
-package io.github.redrain0o0.cccams.block;
+package io.github.redrain0o0.extraperipherals.block;
 
-import io.github.redrain0o0.cccams.block.entity.CameraBlockEntity;
-import io.github.redrain0o0.cccams.block.entity.CccamsBlockEntities;
+import io.github.redrain0o0.extraperipherals.block.entity.CameraBlockEntity;
+import io.github.redrain0o0.extraperipherals.block.entity.ExtraPeripheralsBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -43,6 +43,6 @@ public class CameraBlock extends BaseEntityBlock implements EntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, CccamsBlockEntities.CAMERA_BLOCK_ENTITY, ((level1, blockPos, blockState1, blockEntity) -> blockEntity.tick(level1, blockPos, blockState1)));
+        return createTickerHelper(blockEntityType, ExtraPeripheralsBlockEntities.CAMERA_BLOCK_ENTITY, ((level1, blockPos, blockState1, blockEntity) -> blockEntity.tick(level1, blockPos, blockState1)));
     }
 }

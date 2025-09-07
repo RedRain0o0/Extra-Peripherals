@@ -14,8 +14,21 @@ base {
 repositories {
     mavenCentral()
     maven {
+        name = "Squiddev"
         url = "https://maven.squiddev.cc"
     }
+    maven {
+        name = "Henkelmax"
+        url = 'https://maven.maxhenkel.de/releases'
+    }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
+    mavenLocal()
 }
 
 dependencies {
@@ -26,6 +39,9 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modImplementation "cc.tweaked:cc-tweaked-${project.minecraft_version}-fabric:${project.cc_version}"
     modApi "cc.tweaked:cc-tweaked-${project.minecraft_version}-fabric-api:${project.cc_version}"
+
+    implementation "de.maxhenkel.voicechat:voicechat-api:${project.voicechat_api_version}"
+    modRuntimeOnly "maven.modrinth:simple-voice-chat:fabric-${project.voicechat_dependency}"
 }
 
 processResources {

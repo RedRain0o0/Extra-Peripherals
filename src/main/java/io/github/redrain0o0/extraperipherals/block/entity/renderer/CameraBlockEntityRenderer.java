@@ -1,8 +1,7 @@
-package io.github.redrain0o0.cccams.block.entity.renderer;
+package io.github.redrain0o0.extraperipherals.block.entity.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import io.github.redrain0o0.cccams.Cccams;
-import io.github.redrain0o0.cccams.block.entity.CameraBlockEntity;
+import io.github.redrain0o0.extraperipherals.block.entity.CameraBlockEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;

@@ -1,29 +1,33 @@
 {
   "schemaVersion": 1,
-  "id": "cccams",
+  "id": "extraperipherals",
   "version": "${version}",
-  "name": "CC: Cameras",
-  "description": "Adds 2 camera types to CC:Tweaked",
+  "name": "Extra Peripherals",
+  "description": "Adds various peripherals to CC: Tweaked",
   "authors": [],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/cccams/icon.png",
+  "icon": "assets/extraperipherals/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "io.github.redrain0o0.cccams.client.CccamsClient"
+      "io.github.redrain0o0.extraperipherals.client.ExtraPeripheralsClient"
     ],
     "main": [
-      "io.github.redrain0o0.cccams.Cccams"
+      "io.github.redrain0o0.extraperipherals.ExtraPeripherals"
+    ],
+    "voicechat": [
+      "io.github.redrain0o0.extraperipherals.voice.EPVoicechatPlugin"
     ]
   },
   "mixins": [
-    "cccams.mixins.json"
+    "extraperipherals.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
-    "computercraft": ">=1.116.1"
+    "computercraft": ">=1.116.1",
+    "voicechat": ">=${minecraft_version}-2.6.2"
   }
 }
